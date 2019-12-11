@@ -9,7 +9,7 @@ class Rate extends React.Component {
       'date': '',
       'currencyRate': {}
     }
-    this.currency = ['USD', 'RUB', 'CAD', 'PHP'];
+    this.currency = ['USD', 'RUB', 'CAD', 'GBP'];
     this.getRate();
   }
 
@@ -22,8 +22,10 @@ class Rate extends React.Component {
         for (let i = 0; i < this.currency.length; i++) {
           result[this.currency[i]] = data.rates[this.currency[i]];
         }
-        this.setState({ currencyRate: result })
+        this.setState({ currencyRate: result });
+        console.log(data);
       });
+
 
   }
   render() {
