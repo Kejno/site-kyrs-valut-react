@@ -4,8 +4,13 @@ import './Footer.css';
 class Footer extends React.Component {
 
   render() {
-
-
+    let ftr = {
+      '/contacts': 'Контакты',
+      '/guarantees': 'Гарантии',
+      '/about': 'О сервисе',
+      '/terms': 'Условия возврата',
+      '/agreement': 'Соглашение о пользовании сервиса'
+    }
     return (
       <footer id="footer" className="footer">
         <div className="footer-bottom">
@@ -14,7 +19,6 @@ class Footer extends React.Component {
               <div className="flex-item">
                 <h1 className="footer-title"><a href="https://itgid.info">2019 &copy; React. Lite Level</a></h1>
                 <p> All Rights Reserved</p>
-
               </div>
               <div className="flex-item">
                 <div className="module-body">
@@ -27,11 +31,9 @@ class Footer extends React.Component {
               <div className="flex-item">
                 <div className="module-body">
                   <ul className="list-unstyled">
-                    <li><a href="/contacts" tooltip="Контакты">Контакты</a></li>
-                    <li><a href="/guarantees">Гарантии</a></li>
-                    <li><a href="/about">О сервисе</a></li>
-                    <li><a href="/terms">Условия возврата</a></li>
-                    <li><a href="/agreement">Соглашение о использовании сервиса</a></li>
+                    {Object.keys(ftr).map(elem => {
+                      return <li key={elem}><a href={elem}>{ftr[elem]}</a></li>
+                    })}
                   </ul>
                 </div>
               </div>

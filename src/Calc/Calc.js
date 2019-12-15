@@ -6,15 +6,14 @@ class Calc extends React.Component {
     super(props);
     this.state = {
       result: 0,
-
     }
 
   }
   static getDerivedStateFromProps(props, state) {
     return { rate: props.rate }
   }
-  calcRate = (e) => {
 
+  calcRate = (e) => {
     e.preventDefault();
     let elements = e.target.elements;
     let countCurrency = elements['count-currency'].value;
@@ -22,9 +21,9 @@ class Calc extends React.Component {
     if (+countCurrency > 0) {
       this.setState({ result: (countCurrency / this.state.rate[typeCurrency]).toFixed(2) })
     }
-
   }
-  render() {
+
+  render = () => {
     return (
       <div className="calculator">
         <h3> Калькулятор обмена</h3>
@@ -35,9 +34,7 @@ class Calc extends React.Component {
               <input type="number" name="count-currency" />
               <select name="type-currency" id="">
                 {Object.keys(this.props.rate).map((keyName, i) => {
-                  return (
-                    <option key={i} value={keyName}>{keyName}</option>
-                  )
+                  return <option key={i} value={keyName}>{keyName}</option>
                 })}
               </select>
               <input type="submit" defaultValue="calc" />

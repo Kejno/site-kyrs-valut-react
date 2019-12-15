@@ -1,44 +1,34 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
-import Header from './Header/Header.js';
-import Rate from './Rate/Rate.js';
-import Contacts from './Contacts/Contacts.js';
-import Exchange from './Exchange/Exchange.js';
-import Other from './Other/Other.js';
-
-import Footer from './Footer/Footer.js';
-import Guarantees from './Guarantees/Guarantees.js';
-import Terms from './Terms/Terms.js';
-import Agreement from './Agreement/Agreement.js';
-import About from './About/About.js';
-
-
+import Header from '../Header/Header.js';
+import Rate from '../Rate/Rate.js';
+import Contacts from '../Contacts/Contacts.js';
+import Exchange from '../Exchange/Exchange.js';
+import Other from '../Other/Other.js';
+import Footer from '../Footer/Footer.js';
+import Guarantees from '../Guarantees/Guarantees.js';
+import Terms from '../Terms/Terms.js';
+import Agreement from '../Agreement/Agreement.js';
+import About from '../About/About.js';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       display: localStorage.getItem('display'),
-
     }
   }
 
   okwell = () => {
-
     localStorage.setItem('display', 'none');
     this.setState({ display: localStorage.getItem('display') });
-
   }
 
-  render() {
-
-
+  render = () => {
     return (
       <div className="site">
         <Header />
-
         <div className="container">
           <main>
             <Router>

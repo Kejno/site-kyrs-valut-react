@@ -11,6 +11,8 @@ class Rate extends React.Component {
     }
     this.currency = ['USD', 'RUB', 'CAD', 'GBP'];
     this.getRate();
+    this.getblr();
+
   }
 
   getRate = () => {
@@ -25,9 +27,12 @@ class Rate extends React.Component {
         this.setState({ currencyRate: result });
         console.log(data);
       });
+  }
 
+  getblr = () => {
 
   }
+
   render() {
     return (
       <div className="rate">
@@ -35,7 +40,6 @@ class Rate extends React.Component {
         <div className="flex-container">
           {Object.keys(this.state.currencyRate).map((keyName, i) => {
             return (
-
               <div className="block flex-item" key={i}>
                 <div className="currency-name">{keyName}</div>
                 <div className="currency-in">{this.state.currencyRate[keyName].toFixed(2)}*</div>
